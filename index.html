@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.Cândido ScanFlow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="modal show" id="loginModal">
+  <div class="modal-card">
+    <h2>Acesso — ScanFlow</h2>
+    <button id="btnEntrarAprendiz">👷 Entrar como Aprendiz</button>
+
+    <hr>
+
+    <input type="password" id="auditorPin" placeholder="PIN do Auditor">
+    <button id="btnEntrarAuditor">🛡️ Entrar como Auditor</button>
+  </div>
+</div>
+
+<header>
+  <h1>A.Cândido ScanFlow</h1>
+  <span id="roleTag"></span>
+  <button id="btnSair">Sair</button>
+</header>
+
+<main>
+
+<section>
+<h2>Registrar Produção</h2>
+
+<form id="formRegistro">
+<select id="aprendiz" required>
+<option value="">Aprendiz</option>
+<option>João</option>
+<option>Maria</option>
+<option>Pedro</option>
+<option>Ana</option>
+</select>
+
+<select id="empresa" required>
+<option value="">Empresa</option>
+<option>Transnacional</option>
+<option>Transnacional Fretamento</option>
+<option>Unitrans</option>
+</select>
+
+<input type="date" id="data" required>
+
+<select id="turno" required>
+<option value="">Turno</option>
+<option value="manha">Manhã</option>
+<option value="tarde">Tarde</option>
+</select>
+
+<input type="number" id="quantidade" placeholder="Quantidade" required>
+
+<textarea id="descricao" placeholder="Descrição do dia"></textarea>
+
+<button type="submit">Registrar</button>
+</form>
+</section>
+
+<section data-auditor-only="true">
+<h2>Registros da Semana</h2>
+<table>
+<thead>
+<tr><th>Aprendiz</th><th>Empresa</th><th>Data</th><th>Turno</th><th>Qtd</th></tr>
+</thead>
+<tbody id="tabelaRegistros"></tbody>
+</table>
+
+<ul id="totais"></ul>
+<ul id="totaisTurno"></ul>
+<ul id="totaisEmpresa"></ul>
+
+<button id="btnLimpar">Limpar Registros</button>
+</section>
+
+<section data-auditor-only="true">
+<h2>Relatório</h2>
+
+<input id="concluidoPor" placeholder="Concluído por">
+<input id="obsFinal" placeholder="Observação final">
+
+<button id="btnRelatorio">Gerar Relatório</button>
+<button id="btnCopiar">Copiar</button>
+
+<textarea id="saidaRelatorio" rows="10"></textarea>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
